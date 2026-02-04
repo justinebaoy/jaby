@@ -3,93 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+
 <title>Be My Valentine 💖</title>
 
 <style>
-  * { box-sizing: border-box; }
+* { box-sizing: border-box; }
 
-  body {
-    margin: 0;
-    height: 100vh;
-    overflow: hidden;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-  }
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
 
-  .card {
-    width: 90%;
-    max-width: 360px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: 40px 25px;
-    border-radius: 25px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    z-index: 2;
-  }
+/* Card */
+.card {
+  width: 90%;
+  max-width: 360px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 40px 25px;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  z-index: 2;
+}
 
-  h1 {
-    font-size: 2.2em;
-    margin-bottom: 15px;
-  }
+h1 {
+  font-size: 2.2em;
+  margin-bottom: 15px;
+}
 
-  p {
-    font-size: 1.2em;
-    margin-bottom: 30px;
-  }
+p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
 
-  button {
-    width: 100%;
-    padding: 15px;
-    font-size: 1.2em;
-    border-radius: 35px;
-    border: none;
-    cursor: pointer;
-    margin: 10px 0;
-  }
+button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.2em;
+  border-radius: 35px;
+  border: none;
+  cursor: pointer;
+  margin: 10px 0;
+}
 
-  #yes {
-    background: #ff2e63;
-    color: white;
-  }
+#yes {
+  background: #ff2e63;
+  color: white;
+}
 
-  #no {
-    background: white;
-    color: #ff2e63;
-  }
+#no {
+  background: white;
+  color: #ff2e63;
+}
 
-  .heart {
-    position: absolute;
-    bottom: -40px;
-    color: rgba(255,255,255,0.7);
-    animation: floatUp 6s linear forwards;
-  }
+/* Floating hearts */
+.heart {
+  position: absolute;
+  bottom: -40px;
+  color: rgba(255,255,255,0.7);
+  animation: floatUp 6s linear forwards;
+}
 
-  @keyframes floatUp {
-    0% { transform: translateY(0) scale(1); opacity: 1; }
-    100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
-  }
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+}
 
-  .hidden {
-    display: none;
-  }
+.hidden { display: none; }
 
-  .success {
-    font-size: 2.4em;
-    padding: 20px;
-    animation: pop 0.6s ease;
-  }
+/* Letter */
+.letter {
+  width: 90%;
+  max-width: 360px;
+  background: #fffaf6;
+  color: #5a2a2a;
+  padding: 25px;
+  border-radius: 18px;
+  margin-top: 20px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.35em;
+  line-height: 1.6;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  text-align: left;
+}
 
-  @keyframes pop {
-    0% { transform: scale(0.7); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+/* Handwriting animation (mobile safe) */
+.line {
+  opacity: 0;
+  animation: ink 1.2s ease forwards;
+  margin-bottom: 16px;
+}
+
+.line:nth-of-type(1) { animation-delay: 0.5s; }
+.line:nth-of-type(2) { animation-delay: 2s; }
+.line:nth-of-type(3) { animation-delay: 3.8s; }
+.line:nth-of-type(4) { animation-delay: 5.6s; }
+.line:nth-of-type(5) { animation-delay: 7.4s; }
+
+@keyframes ink {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.signature {
+  text-align: right;
+  font-size: 1.4em;
+}
 </style>
 </head>
+
 <body>
 
 <div class="card" id="card">
@@ -99,8 +137,29 @@
   <button id="no">No 💔</button>
 </div>
 
-<div class="hidden success" id="success">
-  🎉 Yay! I LOVE YOUUUU! 💕
+<div class="hidden letter" id="letter">
+  <p class="line">
+    From the moment you walked into my life, everything felt lighter, warmer,
+    and more meaningful.
+  </p>
+
+  <p class="line">
+    Loving you isn’t something I have to try to do—it just happens, naturally,
+    every single day.
+  </p>
+
+  <p class="line">
+    Your smile, your laugh, the way you care… they mean more to me than words
+    can ever fully explain.
+  </p>
+
+  <p class="line">
+    I just want you to know this—it’s always been you.
+  </p>
+
+  <p class="line signature">
+    — Yours, always ❤️
+  </p>
 </div>
 
 <audio id="music" loop>
@@ -108,42 +167,41 @@
 </audio>
 
 <script>
-  const noBtn = document.getElementById("no");
-  const yesBtn = document.getElementById("yes");
-  const card = document.getElementById("card");
-  const success = document.getElementById("success");
-  const music = document.getElementById("music");
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const card = document.getElementById("card");
+const letter = document.getElementById("letter");
+const music = document.getElementById("music");
 
-  noBtn.addEventListener("click", () => {
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = Math.random() * (window.innerHeight - 80);
-    noBtn.style.position = "absolute";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  });
+noBtn.addEventListener("click", () => {
+  const x = Math.random() * (window.innerWidth - 150);
+  const y = Math.random() * (window.innerHeight - 80);
+  noBtn.style.position = "absolute";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
 
-  yesBtn.addEventListener("click", () => {
-    card.classList.add("hidden");
-    success.classList.remove("hidden");
+yesBtn.addEventListener("click", () => {
+  card.classList.add("hidden");
+  letter.classList.remove("hidden");
 
-    music.currentTime = 0;
-    music.play();
+  music.currentTime = 0;
+  music.play();
 
-    startHearts();
-  });
+  startHearts();
+});
 
-  function startHearts() {
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.innerHTML = "❤️";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 20 + 20 + "px";
-      document.body.appendChild(heart);
-
-      setTimeout(() => heart.remove(), 6000);
-    }, 300);
-  }
+function startHearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }, 350);
+}
 </script>
 
 </body>
