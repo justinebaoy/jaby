@@ -15,20 +15,49 @@ body {
   margin: 0;
   min-height: 100vh;
   overflow-x: hidden;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  font-family: 'garamond',serif;
+  background: linear-gradient(135deg, #ffeef8 0%, #ec8fb2 50%, #cf7a9c 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-align: center;
-  font-size: large;
+  font-size: large; 
+  margin-top: 45px;
+  animation: pulse-glow 1s ease-in-out infinite;
+
+}
+
+@keyframes pulse-glow {
+  0% {
+    text-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+  }
 }
 .subtitle {
-  font-size: 1.4em;       /* Larger font size */
-  font-weight: 600;       /* Semi-bold */
-  margin-bottom: 25px;    /* Space below */
-  color: white;           /* Keep white */
+  font-size: 1.5rem;
+            color: #c0392b;
+            margin-top: 20px;
+            font-style: italic;
+            animation: fade-in-up 1s ease-out 0.5s both;   
+            animation: pulse-glow 1s ease-in-out infinite;
+} 
+
+@keyframes pulse-glow {
+  0% {
+    text-shadow: 0 0 5px rgba(192, 57, 43, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(192, 57, 43, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 5px rgba(192, 57, 43, 0.3);
+  }
 }
 
 /* Card */
@@ -44,36 +73,104 @@ body {
   text-align:center;
   align-items: center;
   justify-content:center;
+  font-family: garamond, serif; 
+  max-height: 51vh;
+  animation: fade-in-up 1s ease-out 0.5s both;
+} 
+@keyframes fade-in-up {
+  from {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+            animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 1
+  }
+}
+
+
 h1 {
-  font-size: 2.2em;
-  margin-bottom: 15px;
+  font-size: 2.5rem;
+        color: #e74c3c;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+        animation: pulse-glow 1s ease-in-out infinite;
+        animation: fade-in-up 1s ease-out 0.5s both; 
+        text-shadow: 2px 2px 4px rgba(231, 76, 60, 0.3);
+        max-height: 39vh;
+        margin-top: 18px;
+        margin-bottom: 10px;
+}
+
+@keyframes pulse-glow {
+  from {
+    text-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.6);
+  } 
 }
 
 p {
-  font-size: 1.2em;
+  font-size: 0.9em;
   margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
 }
 
+
+
 button {
-  width: 100%;
+  width: 90%;
   padding: 15px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   border-radius: 35px;
-  border: none;
+  border: 2px solid rgb(172, 102, 138);
   cursor: pointer;
-  margin: 10px 0;
+  margin: 7px 0;
+  margin-top: auto;
+
 }
 
 #yes {
   background: #ff2e63;
   color: white;
 }
-
+#yes:hover {
+  transform: translate(-3px);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);;
+}
 #no {
   background: white;
   color: #ff2e63;
+}
+#no:hover {
+  transform: translate(-3px);
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.6);;
 }
 
 /* Floating hearts */
@@ -84,25 +181,21 @@ button {
   animation: floatUp 6s linear forwards;
 }
 
-@keyframes floatUp {
-  0% { transform: translateY(0) scale(1); opacity: 1; }
-  100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
-}
 
 .hidden { display: none; }
 
 /* Letter */
 .letter {
-  width: 90%;
+    width: 95%;
   max-width: 360px;
   background: #fffaf6;
   color: #5a2a2a;
-  padding: 25px;
-  border-radius: 18px;
-  margin-top: 20px;
-  font-family: 'Dancing Script', cursive;
+  padding: 20px;
+  border-radius: 17px;
+  margin-top: 17px;
+  font-family: 'garamond', serif;
   font-size: 1.35em;
-  line-height: 1.6;
+  line-height: 1.5;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   text-align: justify;
   text-justify: inter-word;
@@ -123,7 +216,7 @@ button {
 .line:nth-of-type(2) { animation-delay: 2s; }
 .line:nth-of-type(3) { animation-delay: 3.8s; }
 .line:nth-of-type(4) { animation-delay: 5.6s; }
-.line:nth-of-type(5) { animation-delay: 7.4s; }
+.line:nth-of-type(5) { animation-delay: 7.0s; }
 
 @keyframes ink {
   from {
@@ -153,6 +246,17 @@ button {
   top: 10%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-height: 190px;
+}
+ @keyframes fade-in-up {
+   from {
+        opacity: 0;
+        transform: translateY(20px);
+   }
+   to {
+      opacity: 1;
+      transform: translateY(0);
+    }
 }
 
 </style>
@@ -161,7 +265,7 @@ button {
 <body>
 
 <div class="card" id="card">
-  <h1>Hello Monikkk!! </h1>
+  <h1>HAPPY VALENTINES LOVE</h1>
   <p class="subtitle">Will you be my Valentine?</p>
   <button id="yes">Yes 💖</button>
   <button id="no">No 💔</button>
